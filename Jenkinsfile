@@ -4,7 +4,7 @@ node {
 
     stage ("Checkout React Client"){
 
-        git branch: 'main', url: 'https://github.com/foxwas/bahmsdfox-reactclient.git'
+        git branch: 'main', url: 'https://github.com/Lunatunny/Reactclient.git'
 
     }
 
@@ -38,9 +38,9 @@ node {
 
     stage ("Run Docker container instance - react client"){
 
-        sh "docker run -d --rm --name event-reactclient -p 3000:3000 event-reactclient:v1.0"
+        sh "docker run -d --rm --name event-reactclient -p 3000:80 event-reactclient:v1.0"
 
-     }
+    }
 
     
 
@@ -64,7 +64,8 @@ node {
 
 	      sh "kubectl expose deployment event-reactclient --type=LoadBalancer --port=80"
 
-	    }
+	      sh "kubectl scale deployment event-reactclient --replicas=3
+		}
 
 	  }
 
