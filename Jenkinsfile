@@ -18,7 +18,8 @@ node {
     }
 
     stage ("Run Docker container instance - REACT CLIENT"){
-        sh "docker run -d --rm --name reactclient -p 3000:80 jenkins-reactclient:v1.0"
+        sh "docker stop reactclient || true && docker rm reactclient || true"
+	sh "docker run -d --rm --name reactclient -p 3000:80 jenkins-reactclient:v1.0"
     }
 
     stage('User Acceptance Test - react client') {
