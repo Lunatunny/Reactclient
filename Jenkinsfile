@@ -64,7 +64,7 @@ node {
 
 	      sh "kubectl expose deployment event-reactclient --type=LoadBalancer --port=80"
 
-	      sh "kubectl scale deployment event-reactclient --replicas=3
+	      sh "kubectl scale deployment event-reactclient --replicas=3"
 		}
 
 	  }
