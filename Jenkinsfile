@@ -29,9 +29,9 @@ node {
 
 	  if(response=="Yes") {
 	    	stage('Deploy to Kubenetes cluster - react client') {
-	      		sh "kubectl create deployment reactclient --image=jenkins-reactclient:v1.0 --port=80"
-	     		sh "kubectl expose deployment reactclient --type=LoadBalancer --port=80"
-	      		sh "kubectl scale deployment reactclient --replicas=3"
+	      		sh "kubectl create deployment jenkins-reactclient --image=jenkins-reactclient:v1.0 --port=80"
+	     		sh "kubectl expose deployment jenkins-reactclient --type=LoadBalancer --port=80"
+	      		sh "kubectl scale deployment jenkins-reactclient --replicas=3"
 		}
 	  }
     }
