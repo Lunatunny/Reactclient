@@ -28,17 +28,17 @@ node {
 	   description: '', name: 'Pass')]
 
 	  if(response=="Yes") {
-	    stage('Deploy to Kubenetes cluster - react client') {
-	      sh "kubectl create deployment reactclient --image=jenkins-reactclient:v1.0 --port=80"
-	      sh "kubectl expose deployment reactclient --type=LoadBalancer --port=80"
-	      sh "kubectl scale deployment reactclient --replicas=3"
+	    	stage('Deploy to Kubenetes cluster - react client') {
+	      		sh "kubectl create deployment reactclient --image=jenkins-reactclient:v1.0 --port=80"
+	     		sh "kubectl expose deployment reactclient --type=LoadBalancer --port=80"
+	      		sh "kubectl scale deployment reactclient --replicas=3"
 		}
 	  }
     }
 
     stage("Production Deployment View"){
-        sh "kubectl get deployments"
-        sh "kubectl get pods"
-        sh "kubectl get services"
+        sh "sudo kubectl get deployments"
+        sh "sudo kubectl get pods"
+        sh "sudo kubectl get services"
     }
 }
